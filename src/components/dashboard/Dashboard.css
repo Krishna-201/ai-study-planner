@@ -1,0 +1,210 @@
+.dashboard-page { display: flex; flex-direction: column; gap: 24px; }
+
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+}
+
+.dashboard-greeting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-greeting h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* ── Stats ──────────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all var(--transition);
+}
+
+.stat-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-blue .stat-icon  { background: rgba(79,142,247,0.12); color: var(--accent); }
+.stat-green .stat-icon { background: rgba(34,211,160,0.12); color: var(--green); }
+.stat-purple .stat-icon{ background: rgba(167,139,250,0.12); color: var(--purple); }
+.stat-orange .stat-icon{ background: rgba(251,146,60,0.12); color: var(--orange); }
+
+.stat-value {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.stat-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ── Columns ────────────────────────────────────────────── */
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card-head-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+/* ── Task preview ───────────────────────────────────────── */
+.task-list-preview { display: flex; flex-direction: column; gap: 8px; }
+
+.task-preview-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  border: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+.task-preview-item.done { opacity: 0.5; }
+.task-preview-item.done .task-preview-title { text-decoration: line-through; }
+
+.task-subject-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.task-preview-info { flex: 1; min-width: 0; }
+
+.task-preview-title {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-preview-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.task-done-badge {
+  width: 20px;
+  height: 20px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #0a0e1a;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Exams ──────────────────────────────────────────────── */
+.exam-list { display: flex; flex-direction: column; gap: 10px; }
+
+.exam-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.exam-item:last-child { border-bottom: none; }
+
+.exam-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.exam-info { flex: 1; }
+
+.exam-name { font-size: 14px; font-weight: 500; }
+
+.exam-date { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+/* ── Mini chart ─────────────────────────────────────────── */
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 60px;
+  padding: 0 4px;
+}
+
+.mini-bar-wrap {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.mini-bar {
+  width: 100%;
+  min-height: 3px;
+  background: var(--accent);
+  border-radius: 2px 2px 0 0;
+  transition: height 0.4s ease;
+}
+
+@media (max-width: 1200px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 800px) {
+  .dashboard-columns { grid-template-columns: 1fr; }
+}
